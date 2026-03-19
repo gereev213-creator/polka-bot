@@ -1,5 +1,5 @@
-python-telegram-bot[job-queue]==21.0.1
-APScheduler==3.10.4
+python-telegram-bot[job-queue]==20.7
+apscheduler==3.10.4
 matplotlib
 pillow
 imagehash
