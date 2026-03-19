@@ -153,7 +153,7 @@ PAW_SECRET    = os.environ.get("PAW_SECRET",    "12345")      # код пров�
 PAW_TEST_MODE = os.environ.get("PAW_TEST_MODE", "0")          # 0 = боевой режим (тест на 1 руб)
 
 # Сервер на Amvera
-SERVER_URL    = os.environ.get("SERVER_URL", "https://amvera-nikicev2009-run-polka-bot.amvera.ru")
+SERVER_URL    = os.environ.get("SERVER_URL", "https://polka-bot-production.up.railway.app")
 WEBAPP_URL_ENV = os.environ.get("WEBAPP_URL", "").rstrip("/")
 WEBAPP_PORT_ENV = int(os.environ.get("WEBAPP_PORT", "80"))
 
@@ -270,7 +270,7 @@ TECH_CHANNEL = "@PolkaAdsTech"  # замените на реальный usernam
 
 # URL вашего сервера (нужен HTTPS для Mini App)
 # Пример: "https://polka.example.com"
-WEBAPP_URL  = os.environ.get("WEBAPP_URL", "https://amvera-nikicev2009-run-polka-bot.amvera.ru").rstrip("/")
+WEBAPP_URL  = os.environ.get("WEBAPP_URL", "https://polka-bot-production.up.railway.app").rstrip("/")
 WEBAPP_PORT = int(os.environ.get("WEBAPP_PORT", "80"))
 
 # Баннеры для разных разделов
@@ -12982,11 +12982,11 @@ def generate_payanyway_url(user_id: int, plan: str, amount: int, promo: str = ""
         "MNT_SIGNATURE":      signature,
         "MNT_DESCRIPTION":    f"Полка {plan} 30 дней",
         "moneta.locale":      "ru",
-        "MNT_CHECK_URL":      f"{SERVER_URL}/api/payanyway/check",
+        # MNT_CHECK_URL убран — PayAnyWay не ждёт ответа и сразу проводит оплату
         "MNT_RESULT_URL":     f"{SERVER_URL}/api/payanyway",
-        "MNT_SUCCESS_URL":    f"https://t.me/PolkaAdsBot",
-        "MNT_FAIL_URL":       f"https://t.me/PolkaAdsBot",
-        "MNT_RETURN_URL":     f"https://t.me/PolkaAdsBot",
+        "MNT_SUCCESS_URL":    "https://t.me/PolkaAdsBot",
+        "MNT_FAIL_URL":       "https://t.me/PolkaAdsBot",
+        "MNT_RETURN_URL":     "https://t.me/PolkaAdsBot",
     }
     if promo:
         params["MNT_CUSTOM1"] = promo
